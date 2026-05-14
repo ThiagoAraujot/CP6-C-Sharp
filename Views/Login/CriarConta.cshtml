@@ -1,0 +1,70 @@
+@model RegisterViewModel
+@{
+    ViewData["Title"] = "Nova Conta";
+    Layout = "_Layout";
+}
+
+<section class="bg-dark min-vh-75 d-flex align-items-center py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-5 col-lg-4">
+                <div class="card bg-dark-card border-secondary shadow">
+                    <div class="card-body p-4">
+                        <h3 class="text-white text-center fw-bold mb-1">Criar Conta</h3>
+                        <p class="text-secondary text-center small mb-4">Junte-se à nossa comunidade gamer</p>
+
+                        <form asp-action="CriarConta" method="post">
+                            @Html.AntiForgeryToken()
+                            <div asp-validation-summary="ModelOnly" class="text-danger small mb-3"></div>
+
+                            <div class="mb-3">
+                                <label asp-for="Nome" class="form-label text-light small fw-bold"></label>
+                                <input asp-for="Nome" class="form-control bg-secondary border-0 text-light"
+                                       placeholder="Seu nome completo" />
+                                <span asp-validation-for="Nome" class="text-danger small"></span>
+                            </div>
+
+                            <div class="mb-3">
+                                <label asp-for="Email" class="form-label text-light small fw-bold"></label>
+                                <input asp-for="Email" class="form-control bg-secondary border-0 text-light"
+                                       placeholder="seu@email.com" />
+                                <span asp-validation-for="Email" class="text-danger small"></span>
+                            </div>
+
+                            <div class="mb-3">
+                                <label asp-for="Senha" class="form-label text-light small fw-bold"></label>
+                                <input asp-for="Senha" type="password"
+                                       class="form-control bg-secondary border-0 text-light"
+                                       placeholder="Crie uma senha forte" />
+                                <span asp-validation-for="Senha" class="text-danger small"></span>
+                            </div>
+
+                            <div class="mb-4">
+                                <label asp-for="ConfirmarSenha" class="form-label text-light small fw-bold"></label>
+                                <input asp-for="ConfirmarSenha" type="password"
+                                       class="form-control bg-secondary border-0 text-light"
+                                       placeholder="Confirme sua senha" />
+                                <span asp-validation-for="ConfirmarSenha" class="text-danger small"></span>
+                            </div>
+
+                            <button type="submit" class="btn btn-success w-100 fw-bold py-2">
+                                <i class="bi bi-person-plus"></i> Finalizar Cadastro
+                            </button>
+                        </form>
+
+                        <div class="text-center mt-4">
+                            <span class="text-secondary small">Já faz parte do time?</span><br />
+                            <a asp-action="Index" class="text-danger text-decoration-none fw-bold">
+                                Fazer Login
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
