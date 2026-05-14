@@ -1,0 +1,58 @@
+@model IEnumerable<Game>
+@{
+    ViewData["Title"] = "Gerenciar Games";
+}
+
+<section class="bg-dark min-vh-75 py-5">
+    <div class="container">
+        <h2 class="text-white fw-bold mb-4"><i class="bi bi-controller"></i> Gerenciar Games</h2>
+
+        <div class="row g-4">
+            @foreach (var game in Model)
+            {
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card bg-dark-card border-secondary h-100">
+                        @if (!string.IsNullOrEmpty(game.ImagemUrl))
+                        {
+                            <img src="@game.ImagemUrl" class="card-img-top" alt="@game.Titulo"
+                                 style="height: 220px; object-fit: cover;" />
+                        }
+                        else
+                        {
+                            <div class="card-img-top bg-secondary d-flex align-items-center justify-content-center"
+                                 style="height: 220px;">
+                                <i class="bi bi-controller display-3 text-light"></i>
+                            </div>
+                        }
+                        <div class="card-body">
+                            <h5 class="card-title text-white">@game.Titulo</h5>
+                            <p class="text-success fw-bold">R$ @game.Preco.ToString("N2")</p>
+                            <div class="d-flex gap-2">
+                                <a href="#" class="btn btn-success btn-sm">
+                                    <i class="bi bi-cart-plus"></i> Comprar
+                                </a>
+                                <a asp-action="Editar" asp-route-id="@game.Id"
+                                   class="btn btn-warning btn-sm">
+                                    <i class="bi bi-pencil"></i> Editar
+                                </a>
+                                <form asp-action="Excluir" asp-route-id="@game.Id" method="post"
+                                      onsubmit="return confirm('Tem certeza que deseja excluir este game?')">
+                                    @Html.AntiForgeryToken()
+                                    <button type="submit" class="btn btn-danger btn-sm">
+                                        <i class="bi bi-trash"></i> Excluir
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div class="mt-4">
+            <a asp-action="Criar" class="btn btn-danger">
+                <i class="bi bi-plus-circle"></i> Cadastrar Novo Jogo
+            </a>
+        </div>
+    </div>
+</section>

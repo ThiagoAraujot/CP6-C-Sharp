@@ -1,0 +1,78 @@
+@model Game
+@{
+    ViewData["Title"] = "Editar Game";
+}
+
+<section class="bg-dark min-vh-75 d-flex align-items-center py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-5">
+                <div class="card bg-dark-card border-secondary shadow">
+                    <div class="card-body p-4">
+                        <h3 class="text-white text-center fw-bold mb-1">Editar Game</h3>
+                        <p class="text-secondary text-center small mb-4">Atualize as informações do título</p>
+
+                        <form asp-action="Editar" method="post">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" asp-for="Id" />
+                            <input type="hidden" asp-for="DataCadastro" />
+                            <div asp-validation-summary="ModelOnly" class="text-danger small mb-3"></div>
+
+                            <div class="mb-3">
+                                <label asp-for="Titulo" class="form-label text-light small fw-bold"></label>
+                                <input asp-for="Titulo" class="form-control bg-secondary border-0 text-light" />
+                                <span asp-validation-for="Titulo" class="text-danger small"></span>
+                            </div>
+
+                            <div class="mb-3">
+                                <label asp-for="Descricao" class="form-label text-light small fw-bold"></label>
+                                <input asp-for="Descricao" class="form-control bg-secondary border-0 text-light" />
+                                <span asp-validation-for="Descricao" class="text-danger small"></span>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-6">
+                                    <label asp-for="Preco" class="form-label text-light small fw-bold"></label>
+                                    <input asp-for="Preco" type="number" step="0.01"
+                                           class="form-control bg-secondary border-0 text-light" />
+                                    <span asp-validation-for="Preco" class="text-danger small"></span>
+                                </div>
+                                <div class="col-6">
+                                    <label asp-for="Categoria" class="form-label text-light small fw-bold"></label>
+                                    <select asp-for="Categoria" class="form-select bg-secondary border-0 text-light">
+                                        <option value="">Selecione</option>
+                                        <option value="RPG">RPG</option>
+                                        <option value="Ação">Ação</option>
+                                        <option value="Corrida">Corrida</option>
+                                        <option value="Aventura">Aventura</option>
+                                        <option value="Esporte">Esporte</option>
+                                        <option value="FPS">FPS</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label asp-for="ImagemUrl" class="form-label text-light small fw-bold"></label>
+                                <input asp-for="ImagemUrl" class="form-control bg-secondary border-0 text-light" />
+                                <span asp-validation-for="ImagemUrl" class="text-danger small"></span>
+                            </div>
+
+                            <div class="d-flex gap-2">
+                                <button type="submit" class="btn btn-success flex-grow-1 fw-bold py-2">
+                                    <i class="bi bi-save"></i> Atualizar Game
+                                </button>
+                                <a asp-action="Index" class="btn btn-outline-secondary flex-grow-1 py-2">
+                                    <i class="bi bi-arrow-left"></i> Voltar
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
