@@ -1,0 +1,140 @@
+/* ===== GameStoreMVC - Dark Gaming Theme ===== */
+
+/* Base */
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Custom card background */
+.bg-dark-card {
+    background-color: #1e1e2e !important;
+}
+
+/* Hero Banner */
+.hero-banner {
+    background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #0d0d1a 100%);
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://placehold.co/1920x600/1a1a2e/1a1a2e?text=+') center/cover no-repeat;
+    opacity: 0.3;
+}
+
+.min-vh-50 {
+    min-height: 50vh;
+}
+
+.min-vh-75 {
+    min-height: 75vh;
+}
+
+/* Game Cards */
+.game-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 255, 100, 0.15);
+}
+
+/* Buttons */
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+/* Form Inputs */
+.form-control.bg-secondary,
+.form-select.bg-secondary {
+    background-color: #2a2a3e !important;
+}
+
+.form-control.bg-secondary::placeholder {
+    color: #888;
+}
+
+.form-control.bg-secondary:focus,
+.form-select.bg-secondary:focus {
+    background-color: #33334d !important;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+    border-color: #28a745;
+}
+
+/* Badge categories */
+.badge.bg-secondary {
+    background-color: #333 !important;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.badge.bg-secondary:hover {
+    background-color: #28a745 !important;
+}
+
+/* Navbar */
+.navbar-brand {
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+}
+
+/* Footer */
+footer a:hover {
+    color: #28a745 !important;
+}
+
+/* Cards borders */
+.card.border-secondary {
+    border-color: #333 !important;
+}
+
+/* Alert customization */
+.alert {
+    border-radius: 8px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #121212;
+}
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #28a745;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-banner {
+        min-height: 40vh;
+    }
+    .hero-banner h1 {
+        font-size: 2rem;
+    }
+    .hero-banner .lead {
+        font-size: 1rem;
+    }
+}
