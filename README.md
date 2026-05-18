@@ -87,8 +87,8 @@ dotnet run
 
 ## Equipe
 - Thiago Araujo Vieira - RM553477
-- Diana Letícia de Souza Inocencio -  RM553562
+- Diana Letícia de Souza Inocencio - RM553562
 - João Viktor Carvalho de Souza - RM552613
 - Lucas Reis Diniz - RM552838
-- Victor Augusto Pereira dos Santos -  RM553518
+- Victor Augusto Pereira dos Santos - RM553518
 - Vitor de Moura Nascimento - RM553806
